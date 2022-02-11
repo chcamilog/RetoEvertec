@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                        {{ __('Users') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -34,6 +37,10 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <!-- Profile -->                        
+                        <x-dropdown-link :href="route('profile')">
+                            {{ __('Profile') }}                            
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -66,6 +73,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                {{ __('Users') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -76,6 +86,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <!-- Profile -->
+                <x-responsive-nav-link :href="route('profile')">
+                    {{ __('Profile') }}
+                </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
