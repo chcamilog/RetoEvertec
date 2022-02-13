@@ -10,6 +10,7 @@ class Profilecontroller extends Controller
     //
     public function update(ProfileUpdateRequest $request)
     {
+        // dd($request->all());
         auth()->user()->update($request->only('name', 'email'));
 
         if ($request->input('password')) {

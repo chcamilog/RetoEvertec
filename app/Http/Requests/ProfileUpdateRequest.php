@@ -28,7 +28,7 @@ class ProfileUpdateRequest extends FormRequest
             //
             'name'=> 'required',
             'email'=> 'required | email',
-            'password'=> 'min:5 | confirmed',
+            // 'password'=> 'min:5 | confirmed',
 
         ];
     }

@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 
-Route::group( ['middleware' => 'auth', 'verified'], function () {
+Route::group( ['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -30,10 +30,9 @@ Route::group( ['middleware' => 'auth', 'verified'], function () {
     Route::view('profile', 'profile')->name('profile');
     Route::put('profile', [Profilecontroller::class, 'update'])->name('profile.update');
     
+    Route::resource('users', UserController::class);
+    // ->middleware('password.confirm');
+    
 });
-
-// es el de usuarios hay que modificarlo
-Route::view('/users', 'users')->name('users')
-    ->middleware('password.confirm');
 
 require __DIR__.'/auth.php';
